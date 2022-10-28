@@ -23,7 +23,7 @@ export const ProductDetails = () => {
     }
 
    }, [dispatch, alert, error, id])
-
+   {/*funciones para cantidad de productos*/}
    const increaseQty = () => {
       const contador = document.querySelector('.count')
 
@@ -49,7 +49,7 @@ export const ProductDetails = () => {
       <MetaData title={product.nombre}></MetaData>
       <div className='row d-flex justify-content-around'>
           <div className='col-12 col-lg-5 img-fluid' id="imagen_producto">
-              <Carousel pause='hover'>
+              <Carousel pause='hover' >
                 {product.imagen && product.imagen.map(img =>(
                   <Carousel.Item key={img.public_id}>
                     <img className="d-block w-100" src={"../"+img.url} alt={product.nombre}></img>
@@ -69,6 +69,7 @@ export const ProductDetails = () => {
               <span id="No_de_reviews">  ({product.numCalificaciones} Reviews)</span>
               <hr />
               <p id="precio_producto">${product.precio}</p>
+              {/*Clase para inventario y cantidad del producto*/}
               <div className="stockCounter d-inline">
                 <span className="btn btn-danger minus" onClick={decreaseQty}>-</span>
                 <input type="number" className="form-control count d-inline" value={quantity} readOnly/>
@@ -78,10 +79,13 @@ export const ProductDetails = () => {
               <hr />
               <p>Estado: <span id="stock_stado" className={product.inventario>0 ? 'greenColor':'redColor'}>{product.inventario>0 ? "En existencia": "Agotado"}</span></p>
               <hr />
+              {/*descripcion*/}
               <h4 className="mt-2">Descripción:</h4>
               <p>{product.descripcion}</p>
               <hr />
+              {/*vendedor*/}
               <p id="vendedor">Vendido por: <strong>{product.vendedor}</strong></p>
+              {/*botton para dejar opinion*/}
               <button id="btn_review" type="button" className="btn btn-primary mt-4" 
               data-toggle="modal" data-target="#ratingModal">Deja tu Opinion</button>
               <div className="alert alert-danger mt-5" type="alert">Inicia Sesión para dejar tu review</div>
@@ -99,6 +103,7 @@ export const ProductDetails = () => {
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
+                        {/*estrellas*/}
                         <div className="modal-body">
                           <ul className="stars">
                             <li className="star"><i className="fa fa-star"></i></li>

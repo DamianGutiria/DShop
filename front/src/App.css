@@ -617,7 +617,22 @@ ul.CTAs a {
 
 /* Reviews */
 
-img {
+.logo {
   height: auto;
-  max-width: 100%;
+  max-width: 30%;
   }
+
+.visually-hidden{
+  color: black;
+}
+
+.carousel-indicators{
+  height: 10px;
+}
+
+.active,
+.active
+{
+  margin: 5px;
+}
+
